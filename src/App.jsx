@@ -1,36 +1,86 @@
 import React from 'react';
 
-function App(){
 
-//new Data(year, month, day, hours, minutes, seconds, milliseconds)
-let currDate = new Date(2022, 11, 16,11);
-currDate = currDate.getHours();
-let greeting = "";
-const cssStyle = {};
+const SlotM = (props) => {
 
-if (currDate > 1 && currDate < 12){
-   greeting = "Good Morning";
-   cssStyle.color = "#00b894";
-   
-} else if (currDate >= 12 && currDate < 20){
-    greeting = "Good Afternoon";
-    cssStyle.color = "orange";
-}else if (currDate >= 20 && currDate <= 24){
-    greeting = "Good Night";
-    cssStyle.color = "black";
-}
+    // let x = '🤣';
+    // let y = '🤣';
+    // let z = '🎅';
+    
+    let x = props.x;
+    let y = props.y;
+    let z = props.z;
 
-return(
-<>
-    <div>
-    <h1>
-      Hello sir, <span style={cssStyle}> {greeting} </span>
-    </h1>
- </div>
 
- </>
-);
+    if (x===y && y===z){
+      return(
+          <>
+           <div className="slot_inner"> 
+           <h1>
+              
+              {x} {y} {z}
+           </h1>
+           <h1> This is Matching </h1>
+           <hr />
+           </div> 
+          </> 
 
-}
 
-export default App;
+
+          );
+      } else {
+            
+        return(
+            <>
+             <div className="slot_inner"> 
+             <h1>
+                
+                {x} {y} {z}
+             </h1>
+             <h1> This is not Matching </h1>
+             <hr />
+             </div> 
+            </> 
+        );
+      }
+    };
+
+    const App = () => {
+
+     return (
+
+         <>
+
+         <h1 className="heading_style">
+
+         💕 Welcome to{" "}
+         <span style={{fontWeight: "bold"}}> Slot Machine game</span> 
+
+         </h1>
+         <div className="slotmachine">
+
+            <SlotM x = '🤣' y = '🤣' z = '🎅' />
+            <hr />
+            <SlotM x = '🤣' y = '🤣' z = '🤣' />
+            <hr />
+            <SlotM x = '🏳️‍🌈' y = '🏳️‍🌈'  z = '🏳️‍🌈'  />
+            <hr />
+            <SlotM x = '🍕' y = '🍕'  z = '😒'  />
+            
+         </div>
+
+
+
+
+         </>
+
+
+     );
+
+
+
+
+    };
+
+
+    export default App;
